@@ -25,7 +25,7 @@ pub struct Block {
     pub blast_resistance: Option<f32>,
 }
 
-#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub enum BoundingBox {
     Block,
