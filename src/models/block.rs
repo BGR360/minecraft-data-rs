@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Block {
     pub id: u32,
@@ -32,7 +32,13 @@ pub enum BoundingBox {
     Empty,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+impl Default for BoundingBox {
+    fn default() -> Self {
+        Self::Empty
+    }
+}
+
+#[derive(Deserialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Variation {
     metadata: u32,
@@ -49,6 +55,17 @@ pub struct State {
     pub state_type: StateType,
     pub values: Option<Vec<String>>,
     pub num_values: u32,
+}
+
+impl Default for State {
+    fn default() -> Self {
+        Self {
+            name: Default::default(),
+            state_type: StateType::Bool,
+            values: None,
+            num_values: 2,
+        }
+    }
 }
 
 #[derive(Deserialize, Debug, Clone)]

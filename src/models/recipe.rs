@@ -8,7 +8,13 @@ pub enum Recipe {
     Shapeless(ShapelessRecipe),
 }
 
-#[derive(Deserialize, Debug, Clone)]
+impl Default for Recipe {
+    fn default() -> Self {
+        Self::Shaped(Default::default())
+    }
+}
+
+#[derive(Deserialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct ShapedRecipe {
     result: RecipeItem,
@@ -16,7 +22,7 @@ pub struct ShapedRecipe {
     out_shape: Option<Shape>,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct ShapelessRecipe {
     result: RecipeItem,
@@ -37,7 +43,13 @@ pub enum RecipeItem {
     Null(Option<()>),
 }
 
-#[derive(Deserialize, Debug, Clone)]
+impl Default for RecipeItem {
+    fn default() -> Self {
+        Self::Null(None)
+    }
+}
+
+#[derive(Deserialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct IDMetadataCountObject {
     id: i32,

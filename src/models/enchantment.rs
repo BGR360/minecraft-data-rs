@@ -1,4 +1,4 @@
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Enchantment {
     pub id: u32,
@@ -15,7 +15,7 @@ pub struct Enchantment {
     pub discoverable: bool,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Default, Clone)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Cost {
     pub a: i32,
