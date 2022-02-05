@@ -68,7 +68,7 @@ impl Default for State {
     }
 }
 
-#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(Deserialize, Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub enum StateType {
     Enum,

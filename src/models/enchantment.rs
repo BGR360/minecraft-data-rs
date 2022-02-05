@@ -15,7 +15,7 @@ pub struct Enchantment {
     pub discoverable: bool,
 }
 
-#[derive(Deserialize, Debug, Default, Clone, PartialEq, Eq)]
+#[derive(Deserialize, Debug, Default, Clone, Copy, PartialEq, Eq, Hash)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Cost {
     pub a: i32,
