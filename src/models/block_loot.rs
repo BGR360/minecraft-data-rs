@@ -1,11 +1,11 @@
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct BlockLoot {
     pub block: String,
     pub drops: Vec<ItemDrop>,
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct ItemDrop {
     pub item: String,

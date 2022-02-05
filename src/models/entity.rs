@@ -1,4 +1,4 @@
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Entity {
     pub id: u32,

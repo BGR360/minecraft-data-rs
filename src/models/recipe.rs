@@ -1,4 +1,4 @@
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
 #[serde(
     rename_all(deserialize = "camelCase", serialize = "snake_case"),
     untagged
@@ -14,7 +14,7 @@ impl Default for Recipe {
     }
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq, Eq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct ShapedRecipe {
     result: RecipeItem,
@@ -22,7 +22,7 @@ pub struct ShapedRecipe {
     out_shape: Option<Shape>,
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq, Eq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct ShapelessRecipe {
     result: RecipeItem,
@@ -31,7 +31,7 @@ pub struct ShapelessRecipe {
 
 pub type Shape = Vec<Vec<RecipeItem>>;
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
 #[serde(
     rename_all(deserialize = "camelCase", serialize = "snake_case"),
     untagged
@@ -49,7 +49,7 @@ impl Default for RecipeItem {
     }
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq, Eq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct IDMetadataCountObject {
     id: i32,

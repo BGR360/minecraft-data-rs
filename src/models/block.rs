@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Block {
     pub id: u32,
@@ -25,7 +25,7 @@ pub struct Block {
     pub blast_resistance: Option<f32>,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub enum BoundingBox {
     Block,
@@ -38,7 +38,7 @@ impl Default for BoundingBox {
     }
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq, Eq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Variation {
     metadata: u32,
@@ -46,7 +46,7 @@ pub struct Variation {
     description: Option<String>,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
 // The fields in this part of the schema are not camelCase.
 #[serde(rename_all(serialize = "snake_case"))]
 pub struct State {
@@ -68,7 +68,7 @@ impl Default for State {
     }
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, PartialEq, Eq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub enum StateType {
     Enum,

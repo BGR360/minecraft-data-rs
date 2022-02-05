@@ -1,4 +1,4 @@
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Food {
     pub id: u32,
@@ -12,7 +12,7 @@ pub struct Food {
     pub variations: Option<Vec<Variation>>,
 }
 
-#[derive(Deserialize, Debug, Default, Clone)]
+#[derive(Deserialize, Debug, Default, Clone, PartialEq, Eq)]
 #[serde(rename_all(deserialize = "camelCase", serialize = "snake_case"))]
 pub struct Variation {
     pub metadata: u32,
